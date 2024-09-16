@@ -1,0 +1,33 @@
+---
+# This is a basic Ansible playbook
+
+# Define the hosts where the playbook will run
+- hosts: webservers
+  become: yes  # Gain sudo privileges to perform tasks requiring elevated permissions
+
+  tasks:
+    # Task 1: Install the nginx package
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+      # For CentOS/RHEL, replace the apt module with yum:
+      # yum:
+      #   name: nginx
+      #   state: present
+
+    # Task 2: Copy the nginx configuration file to the server
+    - name: Copy nginx configuration file
+      copy:
+        src: ./files/nginx.conf  # Local path to the config file
+        dest: /etc/nginx/nginx.conf  # Destination path on the remote server
+        owner: root
+        group: root
+        mode: '0644'
+
+    # Task 3: Ensure nginx service is started and enabled
+    - name: Start and enable nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes

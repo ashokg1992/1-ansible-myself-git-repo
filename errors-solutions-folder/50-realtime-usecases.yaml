@@ -1,5 +1,5 @@
-DevOps Shack 50 Ansible Real-Time Use Cases
-1. Provisioning Servers: Ansible can be used to automate the provisioning of servers. This includes tasks such as creating instances, configuring network settings, and installing necessary software.
+#DevOps Shack 50 Ansible Real-Time Use Cases
+#1. Provisioning Servers: Ansible can be used to automate the provisioning of servers. This includes tasks such as creating instances, configuring network settings, and installing necessary software.
 ---
 - name: Provision Servers
 hosts: all
